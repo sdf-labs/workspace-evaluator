@@ -1,0 +1,34 @@
+workspace:
+  name: hello     # The name of this workspace -- required
+  edition: "1.2"  # The edition of this workspace -- required
+  description: >
+    This package contains various tests and reports that can be integrated into any SDF Workspace. It is designed to 
+    follow best practices in Data Engineering and provide a simple reusable framework that is equivalent across organizations and 
+    team sizes.
+  defaults: 
+    dialect: presto # The dialect of SQL used in this workspace, defaults to "presto"
+  includes:
+    - path: src
+    - path: reports/
+      type: report
+      defaults: 
+        catalog: sdf
+        schema: std_report
+
+---
+classifier: 
+  name: PII
+  labels:
+    - name: name
+
+---
+table: 
+  name: main
+  description: A description
+  columns:
+    - name: Primary
+      description: some_desc
+    - name: column_2
+      description: "c2 desc"
+      classifiers:
+        - PII.name

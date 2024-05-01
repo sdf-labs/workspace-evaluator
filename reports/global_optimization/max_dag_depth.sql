@@ -1,0 +1,4 @@
+-- SDF STANDARD REPORT --
+-- Reports the maximum depth of the workspace dag
+-- For example:
+--   A -> B || Maximum depth of 1

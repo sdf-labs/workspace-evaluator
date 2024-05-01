@@ -1,0 +1,25 @@
+# SDF Workspace Evaluator
+
+This package contains various tests and reports that can be integrated into any SDF Workspace. It is designed to 
+follow best practices in Data Engineering and provide a simple reusable framework that is equivalent across organizations and 
+team sizes.
+
+There are two components of this package:
+ - **Workspace Checks** - which can be evaluated at compile time to provide guarantees during development.
+ - **Workspace Reports** - which can be evaluated at compile time to provide high-level metrics about your workspace.
+
+All of the Checks and Reports in this package depend purely on the tables found in `sdf.information_schema.*` tables.
+SDF's information schema contains all metadata about the workspace, including DAG relationships, descriptions, and classifiers.
+Check here for more information about (SDF's information schema)[https://docs.sdf.com/reference/sdf-information-schema].
+
+# Installing the Workspace Evaluator
+
+Steps 
+(1) Add the git reference to your SDF workspace
+(2) Configure your Environment Variables
+(3) Validate installation
+
+## Selective Imports
+(We don't want to install all checks/reports)
+
+## Contributing
