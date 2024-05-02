@@ -13,13 +13,36 @@ SDF's information schema contains all metadata about the workspace, including DA
 Check here for more information about (SDF's information schema)[https://docs.sdf.com/reference/sdf-information-schema].
 
 # Installing the Workspace Evaluator
+To install the workspace evaluator in your project, add the *workspace-evaluator* dependency to your workspace.
 
-Steps 
-(1) Add the git reference to your SDF workspace
-(2) Configure your Environment Variables
-(3) Validate installation
+``` yaml
+workspace:
+  ...
+  dependencies:
+    - name: evaluator
+      git: https://github.com/sdf-labs/workspace-evaluator/workspace-evaluator.git
+      tag: v1
+```
 
-## Selective Imports
-(We don't want to install all checks/reports)
+You may specify the git `tag` or `branch`.
+
+## Usage
+To run any report, invoke SDF.
+``` shell
+sdf report --show all
+```
+
+## Output.
+You may run each report individually, or change output format via
+``` shell
+sdf report sdf.std_report.<REPORT_NAME> --format <FORMAT>
+```
+
+## Saving reports
+SDF prints reports to the standard out. You may save one or more reports piping the standard out shell to a file.
+
+``` shell
+sdf report sdf.std_report.<REPORT_NAME> --show result --format nd-json > table_description_coverage.json
+```
 
 ## Contributing
