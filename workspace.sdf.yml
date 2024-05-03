@@ -1,5 +1,5 @@
 workspace:
-  name: hello     # The name of this workspace -- required
+  name: workspace_evaluator     # The name of this workspace -- required
   edition: "1.2"  # The edition of this workspace -- required
   description: >
     This package contains various tests and reports that can be integrated into any SDF Workspace. It is designed to 
@@ -14,21 +14,3 @@ workspace:
       defaults: 
         catalog: sdf
         schema: std_report
-
----
-classifier: 
-  name: PII
-  labels:
-    - name: name
-
----
-table: 
-  name: main
-  description: A description
-  columns:
-    - name: Primary
-      description: some_desc
-    - name: column_2
-      description: "c2 desc"
-      classifiers:
-        - PII.name
