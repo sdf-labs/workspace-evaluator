@@ -8,7 +8,7 @@ workspace:
   defaults: 
     dialect: presto # The dialect of SQL used in this workspace, defaults to "presto"
   includes:
-    - path: src
+
     - path: reports/
       type: report
       defaults: 
