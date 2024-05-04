@@ -1,0 +1,24 @@
+# Contributing
+
+## Introduction
+Welcome! Thank you for contributing to the SDF Workspace Evaluator. The goal with this library is to provide a set of common reports around any SDF workspace that helps teams promote good data engineering practices.
+
+There are various ways you can contribute:
+- Add a new report
+- Update an existing report
+- Expanding documentation
+
+Most people want to add a new report. For steps on how to do this, please read the [How to Add a New Report](#how-to-add-a-new-report) section below.
+
+## Overview
+Reports are located under sections in the `/reports` directory. Each report has corresponding documentation in that section's markdown file.
+
+Each SQL file contains one report, written in *Trino* Dialect SQL.
+
+## How to Add a Code Report
+These reports are designed to be relevant, easy to use, and appplicable to a wide range of organizations. They should allow for fast at-a-glance understanding of the data warehouse in which you are working. 
+
+When designing a report to contribute, optimize for
+1. **Utility** - A report should display useful at-a-glance information
+2. **Generality** - A report should be generic & applicable to many types of organizations, and practices.
+3. **Performance** - A report should be fast to execute.

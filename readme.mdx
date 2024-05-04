@@ -1,3 +1,5 @@
+
+
 # SDF Workspace Evaluator
 
 This package contains various tests and reports that can be integrated into any SDF Workspace. It is designed to 
@@ -21,13 +23,12 @@ workspace:
   dependencies:
     - name: evaluator
       git: https://github.com/sdf-labs/workspace-evaluator/workspace-evaluator.git
-      tag: v1
 ```
 
 You may specify the git `tag` or `branch`.
 
 ## Usage
-To run any report, invoke SDF.
+Once the reference to the workspace library has been added, simply invoke SDF to run reports.
 ``` shell
 sdf report --show all
 ```
@@ -42,7 +43,8 @@ sdf report sdf.std_report.<REPORT_NAME> --format <FORMAT>
 SDF prints reports to the standard out. You may save one or more reports piping the standard out shell to a file.
 
 ``` shell
-sdf report sdf.std_report.<REPORT_NAME> --show result --format nd-json > table_description_coverage.json
+sdf report sdf.std_report.<REPORT_NAME> --show result --format nd-json > report.json
 ```
 
-## Contributing
+## Contribute
+Contributions are more than welcome! Both to the list of reports, or documentation. Please carefully read [CONTRIBUTING.md](./CONTRIBUTING.md.
