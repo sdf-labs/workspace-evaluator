@@ -1,0 +1,16 @@
+workspace:
+  name: workspace_evaluator     # The name of this workspace -- required
+  edition: "1.2"  # The edition of this workspace -- required
+  description: >
+    This package contains various tests and reports that can be integrated into any SDF Workspace. It is designed to 
+    follow best practices in Data Engineering and provide a simple reusable framework that is equivalent across organizations and 
+    team sizes.
+  defaults: 
+    dialect: presto # The dialect of SQL used in this workspace, defaults to "presto"
+  includes:
+
+    - path: reports/
+      type: report
+      defaults: 
+        catalog: sdf
+        schema: std_report

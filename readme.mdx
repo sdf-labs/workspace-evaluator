@@ -1,0 +1,50 @@
+
+
+# SDF Workspace Evaluator
+
+This package contains various tests and reports that can be integrated into any SDF Workspace. It is designed to 
+follow best practices in Data Engineering and provide a simple reusable framework that is equivalent across organizations and 
+team sizes.
+
+There are two components of this package:
+ - **Workspace Checks** - which can be evaluated at compile time to provide guarantees during development.
+ - **Workspace Reports** - which can be evaluated at compile time to provide high-level metrics about your workspace.
+
+All of the Checks and Reports in this package depend purely on the tables found in `sdf.information_schema.*` tables.
+SDF's information schema contains all metadata about the workspace, including DAG relationships, descriptions, and classifiers.
+Check here for more information about (SDF's information schema)[https://docs.sdf.com/reference/sdf-information-schema].
+
+# Installing the Workspace Evaluator
+To install the workspace evaluator in your project, add the *workspace-evaluator* dependency to your workspace.
+
+``` yaml
+workspace:
+  ...
+  dependencies:
+    - name: evaluator
+      git: https://github.com/sdf-labs/workspace-evaluator/workspace-evaluator.git
+```
+
+You may specify the git `tag` or `branch`.
+
+## Usage
+Once the reference to the workspace library has been added, simply invoke SDF to run reports.
+``` shell
+sdf report --show all
+```
+
+## Output.
+You may run each report individually, or change output format via
+``` shell
+sdf report sdf.std_report.<REPORT_NAME> --format <FORMAT>
+```
+
+## Saving reports
+SDF prints reports to the standard out. You may save one or more reports piping the standard out shell to a file.
+
+``` shell
+sdf report sdf.std_report.<REPORT_NAME> --show result --format nd-json > report.json
+```
+
+## Contribute
+Contributions are more than welcome! Both to the list of reports, or documentation. Please carefully read [CONTRIBUTING.md](./CONTRIBUTING.md.
