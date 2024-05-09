@@ -1,0 +1,25 @@
+# Classification Reports
+
+#### `all_pii`
+
+Reports all classifiers that start with PII.
+
+Report example.public.all_pii
++----------------------------------+-------------+-------------+
+| table_ref                        | column_name | classifiers |
++----------------------------------+-------------+-------------+
+| example.public.raw_customer_data | first_name  | PII.name    |
+| example.public.raw_customer_data | email       | PII.email   |
+| example.public.stg_customers     | first_name  | PII.name    |
+| example.public.raw_customer_data | last_name   | PII.name    |
+| example.public.stg_customers     | last_name   | PII.name    |
+| example.public.stg_customers     | email       | PII.email   |
++----------------------------------+-------------+-------------+
+6 rows.
+
+#### `most_used_classifiers`
+
+#### `unique_classifiers`
+
+
+#### `unused_classifiers`

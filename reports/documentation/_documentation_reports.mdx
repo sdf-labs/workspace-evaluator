@@ -2,12 +2,56 @@
 
 #### `table_description_coverage`
 
+Reports the percentage of tables that have descriptions
+
+Report example.public.table_description_coverage
++---------------+------------------+----------------+--------------+
+| tables_w_desc | tables_w_no_desc | table_desc_pct | total_tables |
++---------------+------------------+----------------+--------------+
+| 7             | 9                | 77.7           | 9            |
++---------------+------------------+----------------+--------------+
+1 row.
+
 #### `column_description_coverage`
+
+Reports the percentage of columns that have descriptions
+
+Report example.public.column_description_coverage
++-------------+----------------+--------------+------------+
+| cols_w_desc | cols_w_no_desc | col_desc_pct | total_cols |
++-------------+----------------+--------------+------------+
+| 24          | 48             | 50.0         | 48         |
++-------------+----------------+--------------+------------+
+1 row.
 
 #### `undocumented_models`
 Lists all models lacking a table-level description. Good documentation is key for data awareness and growth.
 
+Report example.public.undocumented_models
++-------------------------------------------+
+| table_ref                                 |
++-------------------------------------------+
+| example.public.customer_address_book      |
+| example.public.raw_customer_data          |
++-------------------------------------------+
+2 rows.
+
 #### `undocumented_columns`
 Lists all columns lacking a description.
 
-
+Report example.public.undocumented_columns
++-------------------------------------------+------------------+
+| table_ref                                 | column_name      |
++-------------------------------------------+------------------+
+| example.public.customer_address_book      | customer_id      |
+| example.public.customer_address_book      | shipping_address |
+| example.public.customer_address_book      | zip_code         |
+| example.public.customer_address_book      | city             |
+| example.public.customer_address_book      | state            |
+| example.public.raw_customer_data          | id               |
+| example.public.raw_customer_data          | first_name       |
+| example.public.raw_customer_data          | last_name        |
+| example.public.raw_customer_data          | email            |
+| example.public.raw_customer_data          | passwords        |
++-------------------------------------------+------------------+
+24 rows, showing only 10 rows. Run with --limit 0 to show all rows.
