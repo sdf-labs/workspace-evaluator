@@ -1,0 +1,30 @@
+# Global Optimization Reports
+
+#### `dead_columns`
+
+Reports all dead columns in the workspace.
+For all models in the workspace with both upstream & downstream dependencies, find columns which are unused.
+
+Report crochet_shop.public.dead_columns
++------------------------+--------------------------------------+
+| column_name            | table_ref                            |
++------------------------+--------------------------------------+
+| myspace_account_name   | example.public.customer_address_book |
++------------------------+--------------------------------------+
+1 row.
+
+#### `dead_tables`
+
+Reports all dead tables in the workspace.
+For all tables in the workspace, creates a report which have no downstream dependencies
+
+Report example.public.dead_tables
++-------------------------------------------+-----------------------+
+| table_ref                                 | table_name            |
++-------------------------------------------+-----------------------+
+| example.public.customer_address_book      | customer_address_book |
++-------------------------------------------+-----------------------+
+1 row.
+
+
+#### `max_dag_depth`
