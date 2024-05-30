@@ -2,3 +2,4 @@
 -- Reports the maximum depth of the workspace dag
 -- For example:
 --   A -> B || Maximum depth of 1
+-- Requires either views or table functions to compute

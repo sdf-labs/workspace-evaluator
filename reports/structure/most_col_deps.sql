@@ -1,3 +1,0 @@
--- SDF STANDARD REPORT --
--- Reports all columns with the most downstream dependencies
--- in descending order

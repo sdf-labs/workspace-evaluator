@@ -2,7 +2,7 @@
 -- Reports all undocumented models in the workspace
 
 SELECT 
-table_ref as table_ref
+table_id
 FROM sdf.information_schema.tables AS t
-WHERE t.catalog_name != 'system'
+WHERE t.purpose != 'system' AND t.purpose != 'external-system'
 AND t.description IS NULL

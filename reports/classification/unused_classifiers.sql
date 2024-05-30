@@ -1,4 +1,3 @@
 -- SDF STANDARD REPORT --
 -- Reports all unused classifiers in the workspace
-
--- HARD TO GET WITH CURRENT INFO SCHEMA DESIGN
+-- Requires some central table for all classifiers defined in workspace to be present

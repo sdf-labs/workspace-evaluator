@@ -3,26 +3,21 @@
 -- For all models in the workspace with both upstream & downstream dependencies,
 -- find columns which are unused.
 
--- INEFFICIENT QUERY!!
+WITH tables_with_lineage AS (
+   SELECT 
+      tl.table_id
+   FROM  
+      sdf.information_schema.tables tl
+   WHERE LENGTH_ARRAY(tl.depends_on) != 0 
+   AND LENGTH_ARRAY(tl.depended_on_by) != 0
+   AND (tl.purpose != 'system' AND tl.purpose != 'external-system')
+)
 
-
--- WITH prefiltered_tables AS (
---    SELECT * FROM sdf.information_schema.tables it
---    WHERE EXISTS (
---     SELECT 1
---     FROM sdf.information_schema.tables downstream_tables
---     WHERE downstream_tables.dependencies ILIKE '%' || it.table_ref || '%' 
---    ) AND it.dependencies IS NOT NULL
--- )
-
--- SELECT ic.column_name, ic.table_ref
--- FROM sdf.information_schema.columns ic
--- JOIN prefiltered_tables it ON ic.table_ref = it.table_ref
--- WHERE NOT EXISTS (
---     SELECT 1
---     FROM sdf.information_schema.columns downstream
---     JOIN sdf.information_schema.tables downstream_tables ON downstream.table_ref = downstream_tables.table_ref
---     WHERE (downstream.lineage_copy ILIKE '%' || ic.column_name || '%'
---        OR downstream.lineage_modify ILIKE '%' || ic.column_name || '%'
---        OR downstream_tables.lineage_scan ILIKE '%' || ic.column_name || '%')
--- );
+SELECT
+   table_id, from_column_id AS dead_column_id
+FROM 
+   tables_with_lineage
+JOIN
+   sdf.information_schema.column_lineage cl ON cl.from_table_id = tables_with_lineage.table_id
+WHERE
+   cl.to_table_id IS NULL;

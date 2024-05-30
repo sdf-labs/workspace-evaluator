@@ -2,14 +2,11 @@
 -- Reports all PII classifiers
 -- Note: Classifiers must start with "PII."
 
-SELECT DISTINCT
-    t.table_ref,
-    c.column_name,
-    c.classifiers
-FROM
-    sdf.information_schema.tables t
-    ,
-    sdf.information_schema.columns c
+SELECT
+    columns.table_id,
+    columns.column_name,
+    columns.classifiers
+FROM 
+    sdf.information_schema.columns
 WHERE
-    t.table_ref = c.table_ref
-    AND c.classifiers LIKE '%PII.%'
+    cardinality(filter(classifiers, element -> contains(element, 'PII.'))) > 0;
