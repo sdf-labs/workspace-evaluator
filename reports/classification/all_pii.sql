@@ -9,4 +9,4 @@ SELECT
 FROM 
     sdf.information_schema.columns
 WHERE
-    cardinality(filter(classifiers, element -> contains(element, 'PII.'))) > 0;
+    CONTAINS_ARRAY_VARCHAR(classifiers, 'PII.');
