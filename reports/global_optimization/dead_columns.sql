@@ -8,8 +8,8 @@ WITH tables_with_lineage AS (
       tl.table_id
    FROM  
       sdf.information_schema.tables tl
-   WHERE LENGTH_ARRAY(tl.depends_on) != 0 
-   AND LENGTH_ARRAY(tl.depended_on_by) != 0
+   WHERE LENGTH(tl.depends_on) != 0 
+   AND LENGTH(tl.depended_on_by) != 0
    AND (tl.purpose != 'system' AND tl.purpose != 'external-system')
 )
 
