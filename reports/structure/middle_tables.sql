@@ -5,5 +5,5 @@
 
 SELECT table_id
 FROM sdf.information_schema.tables
-WHERE LENGTH_ARRAY(tables.depends_on) != 0
-AND LENGTH_ARRAY(tables.depended_on_by) != 0;
+WHERE LENGTH(tables.depends_on) != 0
+AND LENGTH(tables.depended_on_by) != 0;
